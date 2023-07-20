@@ -14,8 +14,11 @@ List some of the notable DevOps-related projects you have worked on. Provide des
 - Role: Mention your specific role or contributions in the project.
 - Technologies: List the tools and technologies used in the project (e.g., Docker, Jenkins, Kubernetes).
 
-### Project 2: [Project Name](link-to-repo-or-demo)
-- Description: A brief overview of the project, its objectives, and technologies used.
+### Project 2: Deployed Cassandra Reaper to Automate Repairs for Enhanced Database Management
+- Description: Cassandra Reaper is a powerful tool designed to automate and streamline the management and maintenance of Apache Cassandra databases. As a distributed NoSQL database, Cassandra can sometimes experience issues with data consistency, fragmentation, or node failures.
+
+* 
+
 - Role: Mention your specific role or contributions in the project.
 - Technologies: List the tools and technologies used in the project (e.g., Ansible, Terraform, AWS).
 
