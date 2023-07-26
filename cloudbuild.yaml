@@ -9,5 +9,6 @@ steps:
         - |-
           pip3 install coverage flask psycopg2
           coverage run test_app.py && coverage xml
+          ls -l
           sonar-scanner -Dsonar.login=${_SONAR_TOKEN}
     id: SAST Scan using SonarCloud in GCP DevSecOps Pipeline
