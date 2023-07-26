@@ -7,8 +7,8 @@ steps:
     args: 
         - '-c'
         - |-
-          yum update -y
-          yum install libpq-dev gcc -y
+          apk update
+          apk add libpq-dev gcc
           pip3 install coverage flask psycopg2
           coverage run code/test_app.py && coverage xml
           ls -l
