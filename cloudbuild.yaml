@@ -8,7 +8,7 @@ steps:
         - '-c'
         - |-
           apk update
-          apk add libpq-dev gcc
+          apk add postgresql
           pip3 install coverage flask psycopg2
           coverage run code/test_app.py && coverage xml
           ls -l
