@@ -1,5 +1,5 @@
 steps:
   - name: sonarsource/sonar-scanner-cli:latest
     entrypoint: sonar-scanner
-    args: ['-Dsonar.host.url=https://sonarcloud.io','-Dsonar.organization=gcpsourcecodereposcanbc','-Dsonar.projectKey=gcpsourcecodereposcanbc_python-test','-Dsonar.login=${_SONAR_TOKEN}']
+    args: ['-Dsonar.host.url=https://sonarcloud.io','-Dsonar.organization=gcpsourcecodereposcanbc','-Dsonar.projectKey=gcpsourcecodereposcanbc_python-test','-Dsonar.login=${_SONAR_TOKEN}', '-Dsonar.qualitygate.wait=true']
     id: SAST Scan using SonarCloud in GCP DevSecOps Pipeline
