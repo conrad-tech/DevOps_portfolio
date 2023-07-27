@@ -16,7 +16,7 @@ steps:
           apk update
           apk add musl-dev libpq-dev gcc
           pip3 install coverage flask psycopg2
-          (/workspace/cloud_sql_proxy -dir=/workspace -instances=apt-trainer-393420:us-central1:github-portfolio-test & sleep 2) && coverage run code/test_app.py && coverage xml
+          (/workspace/cloud_sql_proxy -instances=apt-trainer-393420:us-central1:github-portfolio-test & sleep 2) && coverage run code/test_app.py && coverage xml
     id: Run coverage scan
   - name: sonarsource/sonar-scanner-cli:latest
     # entrypoint: sonar-scanner
