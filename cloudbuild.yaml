@@ -3,7 +3,7 @@ steps:
     entrypoint: sh
     args:
       - -c
-      - 'wget -O /workspace/cloud_sql_proxy https://storage.googleapis.com/cloudsql-proxy/v1.16/cloud_sql_proxy.linux.386 &&  chmod +x /workspace/cloud_sql_proxy'
+      - 'wget -O /workspace/cloud_sql_proxy https://storage.googleapis.com/cloudsql-proxy/v2.6.0/cloud_sql_proxy.linux.386 &&  chmod +x /workspace/cloud_sql_proxy'
     id: proxy-install
   - name: python:3.10.12-alpine3.18
     # entrypoint: sonar-scanner
@@ -16,7 +16,7 @@ steps:
           apk update
           apk add musl-dev libpq-dev gcc
           pip3 install coverage flask psycopg2
-          (/workspace/cloud_sql_proxy -instances=apt-trainer-393420:us-central1:github-portfolio-test=tcp:5432 & sleep 2) 
+          (/workspace/cloud_sql_proxy --address 0.0.0.0 --port 5432 --credentials-file sa_key.json apt-trainer-393420:us-central1:github-portfolio-test & sleep 2) 
     id: Run coverage scan
 
     #&& coverage run code/test_app.py && coverage xml
