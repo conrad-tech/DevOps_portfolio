@@ -3,7 +3,7 @@ steps:
     # entrypoint: sonar-scanner
     # args: [ '-Dsonar.host.url=https://sonarcloud.io','-Dsonar.organization=gcpsourcecodereposcanbc','-Dsonar.projectKey=gcpsourcecodereposcanbc_python-test','-Dsonar.login=${_SONAR_TOKEN}']
     # id: SAST Scan using SonarCloud in GCP DevSecOps Pipeline
-    entrypoint: bash
+    entrypoint: sh
     args: 
         - '-c'
         - |-
