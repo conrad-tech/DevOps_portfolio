@@ -1,4 +1,10 @@
 steps:
+  - name: alpine:3.10
+    entrypoint: sh
+    args:
+      - -c
+      - 'wget -O /workspace/cloud_sql_proxy https://storage.googleapis.com/cloudsql-proxy/v1.16/cloud_sql_proxy.linux.386 &&  chmod +x /workspace/cloud_sql_proxy'
+    id: proxy-install
   - name: python:3.10.12-alpine3.18
     # entrypoint: sonar-scanner
     # args: [ '-Dsonar.host.url=https://sonarcloud.io','-Dsonar.organization=gcpsourcecodereposcanbc','-Dsonar.projectKey=gcpsourcecodereposcanbc_python-test','-Dsonar.login=${_SONAR_TOKEN}']
@@ -10,7 +16,7 @@ steps:
           apk update
           apk add musl-dev libpq-dev gcc
           pip3 install coverage flask psycopg2
-          coverage run code/test_app.py && coverage xml
+          (/workspace/cloud_sql_proxy -dir=/workspace -instances=apt-trainer-393420:us-central1:github-portfolio-test & sleep 2) && coverage run code/test_app.py && coverage xml
     id: Run coverage scan
   - name: sonarsource/sonar-scanner-cli:latest
     # entrypoint: sonar-scanner
