@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 app.secret_key = 'cairocoders-ednalan'
  
-DB_HOST = "34.133.157.193"
+DB_HOST = "10.35.144.3"
 DB_NAME = "testdb"
 DB_USER = "python_user"
 DB_PASS = "{Nx.M2h,Y.?7+q2{"
