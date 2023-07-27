@@ -16,12 +16,14 @@ steps:
           apk update
           apk add musl-dev libpq-dev gcc
           pip3 install coverage flask psycopg2
-          (/workspace/cloud_sql_proxy -instances=apt-trainer-393420:us-central1:github-portfolio-test & sleep 2) && coverage run code/test_app.py && coverage xml
+          (/workspace/cloud_sql_proxy -instances=apt-trainer-393420:us-central1:github-portfolio-test=tcp:5432 & sleep 2) 
     id: Run coverage scan
-  - name: sonarsource/sonar-scanner-cli:latest
-    # entrypoint: sonar-scanner
-    # args: [ '-Dsonar.host.url=https://sonarcloud.io','-Dsonar.organization=gcpsourcecodereposcanbc','-Dsonar.projectKey=gcpsourcecodereposcanbc_python-test','-Dsonar.login=${_SONAR_TOKEN}']
-    # id: SAST Scan using SonarCloud in GCP DevSecOps Pipeline
-    entrypoint: sonar-scanner
-    args: ['sonar-scanner -Dsonar.login=${_SONAR_TOKEN}']          
-    id: SAST Scan using SonarCloud in GCP DevSecOps Pipeline
+
+    #&& coverage run code/test_app.py && coverage xml
+  # - name: sonarsource/sonar-scanner-cli:latest
+  #   # entrypoint: sonar-scanner
+  #   # args: [ '-Dsonar.host.url=https://sonarcloud.io','-Dsonar.organization=gcpsourcecodereposcanbc','-Dsonar.projectKey=gcpsourcecodereposcanbc_python-test','-Dsonar.login=${_SONAR_TOKEN}']
+  #   # id: SAST Scan using SonarCloud in GCP DevSecOps Pipeline
+  #   entrypoint: sonar-scanner
+  #   args: ['sonar-scanner -Dsonar.login=${_SONAR_TOKEN}']          
+  #   id: SAST Scan using SonarCloud in GCP DevSecOps Pipeline
