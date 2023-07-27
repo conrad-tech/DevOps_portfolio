@@ -20,7 +20,7 @@ steps:
           (/workspace/cloud_sql_proxy --address 0.0.0.0 --port 5432 --credentials-file sa_key.json apt-trainer-393420:us-central1:github-portfolio-test & sleep 2) 
           rm -rf sa_key.json
     id: Run coverage scan
-
+# test
     #&& coverage run code/test_app.py && coverage xml
   # - name: sonarsource/sonar-scanner-cli:latest
   #   # entrypoint: sonar-scanner
